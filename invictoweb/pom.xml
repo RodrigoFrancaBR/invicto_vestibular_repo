@@ -6,11 +6,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<!-- 
-		Vamos confi gurar uma propriedade do projeto para que o processo e 
+	<!-- Vamos confi gurar um a propriedade do projeto para que o processo e 
 		build use a codifi cação UTF-8 para copiar arquivos e, também, confi gurar 
-		o plugin de compilação para dizer que nosso projeto deve usar Java 8. 
-	-->
+		o plugin de compilação para dizer que nosso projeto deve usar Java 8. -->
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -36,6 +34,28 @@
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
 			<scope>provided</scope>
+		</dependency>
+
+		<!-- Núcleo do Hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>4.3.8.Final</version>
+			<scope>compile</scope>
+		</dependency>
+		<!-- Implementação de EntityManager da JPA -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.3.8.Final</version>
+			<scope>compile</scope>
+		</dependency>
+		<!-- Driver JDBC do MySQL -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.34</version>
+			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 </project>
