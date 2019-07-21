@@ -1,10 +1,10 @@
-package invictoweb.business.factory;
+package br.com.franca.invictoweb.business.factory;
 
 import java.lang.reflect.Constructor;
 import java.util.HashMap;
 
-import invictoweb.business.BaseBusiness;
-import invictoweb.dao.factory.IDAOFactory;
+import br.com.franca.invictoweb.business.BaseBusiness;
+import br.com.franca.invictoweb.dao.factory.IDAOFactory;
 
 public class InvictoBusinessFactory {
 	

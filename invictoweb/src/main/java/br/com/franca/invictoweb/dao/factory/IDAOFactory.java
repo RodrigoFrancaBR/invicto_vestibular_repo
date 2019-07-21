@@ -1,8 +1,8 @@
-package invictoweb.dao.factory;
+package br.com.franca.invictoweb.dao.factory;
 
 import javax.persistence.EntityManager;
 
-import invictoweb.dao.BaseDAO;
+import br.com.franca.invictoweb.dao.BaseDAO;
 
 public interface IDAOFactory {
 	public void startGlobalTransaction();

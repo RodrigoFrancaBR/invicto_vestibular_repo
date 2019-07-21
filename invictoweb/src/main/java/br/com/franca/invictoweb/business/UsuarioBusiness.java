@@ -1,8 +1,8 @@
-package invictoweb.business;
+package br.com.franca.invictoweb.business;
 
-import invictoweb.business.factory.InvictoBusinessFactory;
-import invictoweb.dao.UsuarioDAO;
-import invictoweb.model.Usuario;
+import br.com.franca.invictoweb.business.factory.InvictoBusinessFactory;
+import br.com.franca.invictoweb.dao.UsuarioDAO;
+import br.com.franca.invictoweb.model.Usuario;
 
 public class UsuarioBusiness extends BaseBusiness {
 

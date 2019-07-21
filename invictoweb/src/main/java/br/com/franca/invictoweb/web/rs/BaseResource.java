@@ -1,10 +1,10 @@
-package invictoweb.web.rs;
+package br.com.franca.invictoweb.web.rs;
 
 import javax.persistence.EntityManagerFactory;
 
-import invictoweb.business.factory.InvictoBusinessFactory;
-import invictoweb.dao.factory.InvictoDAOFactory;
-import invictoweb.web.app.InvictoWebApplication;
+import br.com.franca.invictoweb.business.factory.InvictoBusinessFactory;
+import br.com.franca.invictoweb.dao.factory.InvictoDAOFactory;
+import br.com.franca.invictoweb.web.app.InvictoWebApplication;
 
 public class BaseResource {
 	private InvictoBusinessFactory businessFactory = null;

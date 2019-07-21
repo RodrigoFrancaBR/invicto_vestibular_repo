@@ -1,8 +1,8 @@
-package invictoweb.business;
+package br.com.franca.invictoweb.business;
 
-import invictoweb.business.factory.InvictoBusinessFactory;
-import invictoweb.dao.BaseDAO;
-import invictoweb.dao.factory.IDAOFactory;
+import br.com.franca.invictoweb.business.factory.InvictoBusinessFactory;
+import br.com.franca.invictoweb.dao.BaseDAO;
+import br.com.franca.invictoweb.dao.factory.IDAOFactory;
 
 public abstract class BaseBusiness {
 	private final InvictoBusinessFactory factory;

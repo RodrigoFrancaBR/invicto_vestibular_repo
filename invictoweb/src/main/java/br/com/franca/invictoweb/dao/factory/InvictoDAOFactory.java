@@ -1,4 +1,4 @@
-package invictoweb.dao.factory;
+package br.com.franca.invictoweb.dao.factory;
 
 import java.lang.reflect.Constructor;
 import java.util.HashMap;
@@ -6,7 +6,7 @@ import java.util.HashMap;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
-import invictoweb.dao.BaseDAO;
+import br.com.franca.invictoweb.dao.BaseDAO;
 
 public class InvictoDAOFactory implements IDAOFactory {
 

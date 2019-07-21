@@ -1,8 +1,8 @@
-package invictoweb.dao;
+package br.com.franca.invictoweb.dao;
 
 import javax.persistence.EntityManager;
 
-import invictoweb.dao.factory.IDAOFactory;
+import br.com.franca.invictoweb.dao.factory.IDAOFactory;
 
 public abstract class BaseDAO {
 	private IDAOFactory daoFactory;

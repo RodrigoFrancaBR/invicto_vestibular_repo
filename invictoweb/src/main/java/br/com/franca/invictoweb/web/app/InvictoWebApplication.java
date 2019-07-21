@@ -1,4 +1,4 @@
-package invictoweb.web.app;
+package br.com.franca.invictoweb.web.app;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

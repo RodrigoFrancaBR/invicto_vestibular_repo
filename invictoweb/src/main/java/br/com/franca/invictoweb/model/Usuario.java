@@ -1,4 +1,4 @@
-package invictoweb.model;
+package br.com.franca.invictoweb.model;
 
 import java.io.Serializable;
 

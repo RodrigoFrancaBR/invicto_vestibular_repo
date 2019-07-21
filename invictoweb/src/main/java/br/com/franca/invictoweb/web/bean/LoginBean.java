@@ -1,12 +1,12 @@
-package invictoweb.web.bean;
+package br.com.franca.invictoweb.web.bean;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import invictoweb.model.Usuario;
-import invictoweb.web.rs.LoginResource;
+import br.com.franca.invictoweb.model.Usuario;
+import br.com.franca.invictoweb.web.rs.LoginResource;
 
 @ManagedBean
 @SessionScoped

@@ -1,10 +1,10 @@
-package invictoweb.dao;
+package br.com.franca.invictoweb.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-import invictoweb.dao.factory.IDAOFactory;
-import invictoweb.model.Usuario;
+import br.com.franca.invictoweb.dao.factory.IDAOFactory;
+import br.com.franca.invictoweb.model.Usuario;
 
 public class UsuarioDAO extends BaseDAO {
 

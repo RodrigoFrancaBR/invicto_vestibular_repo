@@ -1,7 +1,7 @@
-package invictoweb.web.rs;
+package br.com.franca.invictoweb.web.rs;
 
-import invictoweb.business.UsuarioBusiness;
-import invictoweb.model.Usuario;
+import br.com.franca.invictoweb.business.UsuarioBusiness;
+import br.com.franca.invictoweb.model.Usuario;
 
 public class LoginResource extends BaseResource {
 	public Boolean efetuarLogin(Usuario usuario) {
