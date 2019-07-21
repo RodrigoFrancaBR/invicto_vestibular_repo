@@ -6,13 +6,14 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<!-- Vamos confi gurar um a propriedade do projeto para que o processo e 
+	<!-- configurando a propriedade do projeto para que o processo e 
 		build use a codifi cação UTF-8 para copiar arquivos e, também, confi gurar 
 		o plugin de compilação para dizer que nosso projeto deve usar Java 8. -->
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+	
 	<build>
 		<plugins>
 			<plugin>
@@ -27,7 +28,6 @@
 	</build>
 
 	<!-- Servlet -->
-
 	<dependencies>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -43,6 +43,7 @@
 			<version>4.3.8.Final</version>
 			<scope>compile</scope>
 		</dependency>
+		
 		<!-- Implementação de EntityManager da JPA -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -50,6 +51,7 @@
 			<version>4.3.8.Final</version>
 			<scope>compile</scope>
 		</dependency>
+		
 		<!-- Driver JDBC do MySQL -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -57,5 +59,14 @@
 			<version>5.1.34</version>
 			<scope>compile</scope>
 		</dependency>
+
+		<!-- Mojarra (implementacao do JSF) -->
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.faces</artifactId>
+			<version>2.2.10</version>
+			<scope>compile</scope>
+		</dependency>
+		
 	</dependencies>
 </project>
