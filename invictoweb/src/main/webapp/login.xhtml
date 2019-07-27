@@ -5,24 +5,46 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:form id="formLogin">
-	<h:messages />
 	<fieldset>
 		<legend>Login</legend>
-		<h:panelGrid columns="2">
+		<h:panelGrid>
+
 
 			<h:outputLabel value="Email:" for="inpEmail" />
-			<h:inputText id="inpEmail" value="#{loginBean.usuario.email}"
-				required="true" validatorMessage="O máximo são 60">
-				<f:validateLength maximum="60" />
+			<h:inputText id="inpEmail" autocomplete="off" validator="#{loginBean.verificarEmail}"				
+				value="#{loginBean.usuario.email}">
+				<f:passThroughAttribute name="type" value="email" />				
 			</h:inputText>
 
-			<h:outputLabel value="Senha:" for="inpSenha" />
-			<h:inputText id="inpSenha" value="#{loginBean.usuario.senha}"
-				required="true" validator="#{loginBean.verificarSenha}">
+			<h:message for="inpEmail" showDetail="true" showSummary="false"
+				errorStyle="color: red" infoStyle="color: green"
+				warnStyle="color: orange" fatalStyle="color: gray" />
+			
+			
+			<!-- <h:inputText id="inpEmail" autocomplete="off"
+				validatorMessage="O valor do campo precisa ter no máximo 30 caracteres."
+				value="#{loginBean.usuario.email}">
+				<f:passThroughAttribute name="type" value="email" />
+				<f:validateLength maximum="30" />
 			</h:inputText>
+
+			<h:message for="inpEmail" showDetail="true" showSummary="false"
+				errorStyle="color: red" infoStyle="color: green"
+				warnStyle="color: orange" fatalStyle="color: gray" />
+ -->
+
+
+			<h:outputLabel value="Senha:" for="inpSenha" />
+			<h:inputSecret id="inpSenha" autocomplete="off"
+				value="#{loginBean.usuario.senha}" />
+			<!-- <h:message for="inpEmail" showDetail="true" showSummary="true"
+				errorStyle="color: red" infoStyle="color: green"
+				warnStyle="color: orange" fatalStyle="color: gray" />
+ -->
 
 			<h:commandButton id="btnLogin" value="Efetuar Login"
 				action="#{loginBean.efetuarLogin}" />
+
 		</h:panelGrid>
 	</fieldset>
 </h:form>

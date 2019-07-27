@@ -2,6 +2,8 @@ package br.com.franca.invictoweb.web.bean;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ReferencedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -12,7 +14,7 @@ import br.com.franca.invictoweb.model.Usuario;
 import br.com.franca.invictoweb.web.rs.LoginResource;
 
 @ManagedBean
-@SessionScoped
+@RequestScoped
 public class LoginBean {
 	private Usuario usuario;
 
@@ -26,17 +28,36 @@ public class LoginBean {
 		return usuario;
 	}
 	
-	public void verificarSenha(FacesContext context , UIComponent component, Object valorDigitado)throws ValidatorException{
+	public void verificarEmail(FacesContext context, UIComponent component, Object valorDigitado)throws ValidatorException {
 		String valor = valorDigitado.toString();
-		if (!valor.startsWith("1")){
-			// throw new ValidatorException(new FacesMessage("Toda Senha deve iniciar com 1"));
+		FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_WARN, "Email",
+				"O valor do campo precisa ter no máximo 30 caracteres.");
+		
+		if (valor.length() > 30){
+			System.err.println("erro");
+			context.addMessage("formLogin:inpEmail", mensagem);
+			}			
+	}
+	
+	public void verificarSenha(FacesContext context, UIComponent component, Object valorDigitado)
+			throws ValidatorException {
+		String valor = valorDigitado.toString();
+		if (!valor.startsWith("1")) {
+			// throw new ValidatorException(new FacesMessage("Toda Senha deve
+			// iniciar com 1"));
 			FacesContext.getCurrentInstance().addMessage("inpSenha", new FacesMessage("Toda Senha deve iniciar com 1"));
 		}
 	}
 
 	public String efetuarLogin() {
+		System.out.println("Ola");
+		
+		/*FacesContext context = FacesContext.getCurrentInstance();
 
-		FacesContext context = FacesContext.getCurrentInstance();
+		FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Email",
+				"Email inválido: " + this.usuario.getEmail());
+
+		// context.addMessage("formLogin:inpEmail", mensagem);
 
 		LoginResource loginResource = new LoginResource();
 
@@ -48,9 +69,13 @@ public class LoginBean {
 			return "principal?faces-redirect=true";
 		} else {
 			context.getExternalContext().getFlash().setKeepMessages(true);
-			context.addMessage(null, new FacesMessage("Usuário não encontrado"));
+			context.addMessage("formLogin:inpEmail", mensagem);
+			// context.addMessage("formLogin:inpEmail", new
+			// FacesMessage("Usuário não encontrado"));
 			return "login?faces-redirect=true";
 		}
+*/
+		 return null;
 	}
 
 }
