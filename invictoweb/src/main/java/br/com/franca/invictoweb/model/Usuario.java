@@ -2,6 +2,7 @@ package br.com.franca.invictoweb.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,7 +19,18 @@ public class Usuario implements Serializable{
 	private Long id;
 	private String email;
 	private String senha;
+	
+	@Id
+	@GeneratedValue	
+	public Long getId() {
+		return id;
+	}
 
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	@Column(length = 60, nullable = false)
 	public String getEmail() {
 		return email;
 	}
@@ -27,16 +39,7 @@ public class Usuario implements Serializable{
 		this.email = email;
 	}
 
-	@Id
-	@GeneratedValue
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
+	@Column(length = 10, nullable = false)
 	public String getSenha() {
 		return senha;
 	}

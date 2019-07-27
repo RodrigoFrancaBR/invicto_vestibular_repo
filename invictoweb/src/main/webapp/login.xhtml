@@ -4,22 +4,24 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-<h:form id="login">
+<h:form id="formLogin">
+	<h:messages />
 	<fieldset>
 		<legend>Login</legend>
 		<h:panelGrid columns="2">
 
-			<h:outputLabel value="Email:" for="email" />
-			<h:inputText id="email" value="#{loginBean.usuario.email}"
-				required="true">
+			<h:outputLabel value="Email:" for="inpEmail" />
+			<h:inputText id="inpEmail" value="#{loginBean.usuario.email}"
+				required="true" validatorMessage="O máximo são 60">
+				<f:validateLength maximum="60" />
 			</h:inputText>
 
-			<h:outputLabel value="Senha:" for="senha" />
-			<h:inputText id="senha" value="#{loginBean.usuario.senha}"
-				required="true">
+			<h:outputLabel value="Senha:" for="inpSenha" />
+			<h:inputText id="inpSenha" value="#{loginBean.usuario.senha}"
+				required="true" validator="#{loginBean.verificarSenha}">
 			</h:inputText>
 
-			<h:commandButton value="Efetuar Login"
+			<h:commandButton id="btnLogin" value="Efetuar Login"
 				action="#{loginBean.efetuarLogin}" />
 		</h:panelGrid>
 	</fieldset>
