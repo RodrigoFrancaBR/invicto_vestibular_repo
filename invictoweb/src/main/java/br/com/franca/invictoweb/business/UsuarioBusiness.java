@@ -25,7 +25,7 @@ public class UsuarioBusiness extends BaseBusiness {
 			throw new RuntimeException();
 		}
 
-		if (null == usuario.getEmail()) {
+		if (null == usuario.getNome()) {
 			throw new RuntimeException();
 		}
 

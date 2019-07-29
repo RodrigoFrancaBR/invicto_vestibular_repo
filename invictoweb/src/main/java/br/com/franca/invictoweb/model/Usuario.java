@@ -17,7 +17,7 @@ public class Usuario implements Serializable{
 	 */
 	private static final long serialVersionUID = 8002195891595593279L;	
 	private Long id;
-	private String email;
+	private String nome;
 	private String senha;
 	
 	@Id
@@ -30,13 +30,13 @@ public class Usuario implements Serializable{
 		this.id = id;
 	}
 	
-	@Column(length = 60, nullable = false)
-	public String getEmail() {
-		return email;
+	@Column(length = 10, nullable = false)
+	public String getNome() {
+		return nome;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	@Column(length = 10, nullable = false)
@@ -75,7 +75,7 @@ public class Usuario implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", email=" + email + ", senha=" + senha + "]";
+		return "Usuario [id=" + id + ", nome=" + nome + ", senha=" + senha + "]";
 	}
 
 }

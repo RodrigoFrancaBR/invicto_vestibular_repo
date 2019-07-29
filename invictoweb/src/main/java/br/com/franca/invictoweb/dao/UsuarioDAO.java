@@ -21,9 +21,9 @@ public class UsuarioDAO extends BaseDAO {
 			em = getEntityManager();
 
 			TypedQuery<Usuario> query = em.createQuery(
-					" select u from Usuario u " + " where u.email = :pEmail and u.senha = :pSenha", Usuario.class);
+					" select u from Usuario u " + " where u.nome = :pNome and u.senha = :pSenha", Usuario.class);
 
-			query.setParameter("pEmail", user.getEmail());
+			query.setParameter("pNome", user.getNome());
 			query.setParameter("pSenha", user.getSenha());
 
 			return resultado = query.getSingleResult();
