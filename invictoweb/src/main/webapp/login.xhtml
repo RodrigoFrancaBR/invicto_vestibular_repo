@@ -3,37 +3,60 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-<h:messages  globalOnly="true" showSummary="true" showDetail="true" errorStyle="color:red"/>
-<h:form id="formLogin">
-	<fieldset>
-		<legend>Login</legend>
-		<h:panelGrid>
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 
-			<h:outputLabel value="Usuário:" for="inpUsuario" />
-			<h:inputText id="inpUsuario" autocomplete="off" 
-			required="true" requiredMessage="Campo com preenchimento obrigatório."
-				validatorMessage="O valor do campo deve ter no mínimo 7 e no máximo 10 caracteres."
-				value="#{loginBean.usuario.nome}">
-				<f:validateLength minimum="7" maximum="10" />
-			</h:inputText>
+<h:head>
+	<title>Login</title>
+	<h:outputStylesheet library="css" name="estilo.css" />
+</h:head>
+<h:body>
 
-			<h:message for="inpUsuario" showDetail="true" errorStyle="color: red" />
+	<div id="login-dialog">	
+		<h:form id="formLogin">  
+			<p:panel header="Efetuar login" styleClass="grid-login">
+				<p:messages autoUpdate="true" />
+ 					
+				
+				<h:panelGrid columns="2">
+					<p:outputLabel value="Usuário" for="inpUsuario" />
+					<h:panelGroup>
 
-			<h:outputLabel value="Senha:" for="inpSenha" />
-			<h:inputSecret id="inpSenha" autocomplete="off"
-				required="true" requiredMessage="Campo com preenchimento obrigatório."
-				validatorMessage="O valor do campo deve ter no mínimo 7 e no máximo 10 caracteres."
-				value="#{loginBean.usuario.senha}">
-				<f:validateLength minimum="7" maximum="10" />
-			</h:inputSecret>
+						<p:inputText id="inpUsuario" autocomplete="off" placeholder="Obrigatório" required="true"
+							requiredMessage="Campo Usuário é de preenchimento obrigatório."
+							validatorMessage="Campo Usuário deve ter no mínimo 7 e no máximo 10 caracteres."
+							value="#{loginBean.usuario.nome}">
+							<f:validateLength minimum="7" maximum="10" />
+						</p:inputText>
 
-			<h:message for="inpSenha" showDetail="true" errorStyle="color: red" />
+						<p:message for="inpUsuario"  showDetail="true" showSummary="false"/>
 
-			<h:commandButton id="btnLogin" value="Efetuar Login"
-				action="#{loginBean.efetuarLogin}" />
+					</h:panelGroup>
 
-		</h:panelGrid>
-	</fieldset>
-</h:form>
+					<p:outputLabel value="Senha" for="inpSenha" />
+
+					<h:panelGroup>
+						<p:password id="inpSenha" placeholder="Obrigatório"
+							required="true" autocomplete="off"
+							requiredMessage="Campo Senha é de preenchimento obrigatório."
+							validatorMessage="Campo Senha deve ter no mínimo 7 e no máximo 10 caracteres."
+							value="#{loginBean.usuario.senha}">
+
+							<f:validateLength minimum="7" maximum="10" />
+
+						</p:password>
+
+						<p:message for="inpSenha"  showDetail="true" showSummary="false"/>
+
+					</h:panelGroup>
+
+					<p:commandButton id="btnLogin" value="Efetuar Login"
+						action="#{loginBean.efetuarLogin}"/>
+
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
+	</div>
+</h:body>
+
 </html>

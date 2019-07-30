@@ -53,7 +53,7 @@ public class LoginBean {
 			return "principal?faces-redirect=true";
 		} else {
 			context.getExternalContext().getFlash().setKeepMessages(true);
-			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Login", "Usuário não encontrado"));
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Usuário não encontrado",""));
 			return "login?faces-redirect=true";
 		}
 	}

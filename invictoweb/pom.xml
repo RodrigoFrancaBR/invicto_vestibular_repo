@@ -6,14 +6,14 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<!-- configurando a propriedade do projeto para que o processo e 
-		build use a codifi cação UTF-8 para copiar arquivos e, também, confi gurar 
-		o plugin de compilação para dizer que nosso projeto deve usar Java 8. -->
+	<!-- configurando a propriedade do projeto para que o processo e build use 
+		a codifi cação UTF-8 para copiar arquivos e, também, confi gurar o plugin 
+		de compilação para dizer que nosso projeto deve usar Java 8. -->
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -43,7 +43,7 @@
 			<version>4.3.8.Final</version>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<!-- Implementação de EntityManager da JPA -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -51,7 +51,7 @@
 			<version>4.3.8.Final</version>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<!-- Driver JDBC do MySQL -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -67,6 +67,13 @@
 			<version>2.2.10</version>
 			<scope>compile</scope>
 		</dependency>
-		
+
+		<!-- https://mvnrepository.com/artifact/org.primefaces/primefaces -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>6.0</version>
+		</dependency>
+
 	</dependencies>
 </project>
