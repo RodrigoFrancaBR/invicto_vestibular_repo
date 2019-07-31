@@ -53,9 +53,16 @@ public class LoginBean {
 			return "principal?faces-redirect=true";
 		} else {
 			context.getExternalContext().getFlash().setKeepMessages(true);
-			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Usuário não encontrado",""));
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Usuário não encontrado", ""));
 			return "login?faces-redirect=true";
 		}
+	}
+
+	public String efetuarLogout(){
+		System.out.println("Logout");
+		FacesContext context = FacesContext.getCurrentInstance();
+		context.getExternalContext().getSessionMap().remove("usuarioLogado", this.usuario);
+		return "login?faces-redirect=true";
 	}
 
 }
