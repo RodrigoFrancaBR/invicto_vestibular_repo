@@ -1,35 +1,21 @@
 package br.com.franca.invictoweb.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_usuario")
-public class Usuario implements Serializable{	
+public class Usuario extends AbstractBean {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 8002195891595593279L;	
-	private Long id;
+	private static final long serialVersionUID = -3985035458790790933L;
+	
 	private String nome;
 	private String senha;
-	
-	@Id
-	@GeneratedValue	
-	public Long getId() {
-		return id;
-	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
 	@Column(length = 10, nullable = false)
 	public String getNome() {
 		return nome;
@@ -49,33 +35,11 @@ public class Usuario implements Serializable{
 	}
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Usuario other = (Usuario) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
-	}
-
-	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nome=" + nome + ", senha=" + senha + "]";
+		return "Usuario [nome=" + nome + ", senha=" + senha + "]";
 	}
-
+	
+	
+	
+	
 }
