@@ -1,35 +1,33 @@
 package br.com.franca.invictoweb.dao;
 
+import java.io.Serializable;
+
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-import br.com.franca.invictoweb.dao.factory.IDAOFactory;
 import br.com.franca.invictoweb.model.Usuario;
+import br.com.franca.invictoweb.util.EntityManagerUtil;
 
-public class UsuarioDAO extends BaseDAO {
+public class UsuarioDAO implements Serializable {
 
-	protected UsuarioDAO(IDAOFactory daoFactory) {
-		super(daoFactory);
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5863741478489628684L;
+
+	private String mensagem = "";
+	private EntityManager em;
+
+	public UsuarioDAO() {
+		this.em = EntityManagerUtil.getEntityManager();
 	}
 
-	public Usuario findUser(Usuario user) throws Exception {
+	public Usuario efetuarLogin(String nome, String senha) {
+		String jpql = "Select u from Usuario u Where " + "u.nome = :nome" + " and " + "u.senha = :senha";
+		TypedQuery<Usuario> query = em.createQuery(jpql, Usuario.class);
+		query.setParameter("nome", nome);
+		query.setParameter("senha", senha);
+		return query.getSingleResult();
 
-		Usuario resultado = null;
-		EntityManager em = null;
-
-		try {
-			em = getEntityManager();
-
-			TypedQuery<Usuario> query = em.createQuery(
-					" select u from Usuario u " + " where u.nome = :pNome and u.senha = :pSenha", Usuario.class);
-
-			query.setParameter("pNome", user.getNome());
-			query.setParameter("pSenha", user.getSenha());
-
-			return resultado = query.getSingleResult();
-
-		} finally {
-			closeEntityManager(em);
-		}
 	}
 }

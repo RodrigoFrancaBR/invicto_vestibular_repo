@@ -11,7 +11,7 @@
 		<p:growl id="messages" />
 
 		<p:menubar>
-			<p:menuitem value="Unidade" />
+			<p:menuitem value="Unidade" url="unidade.xhtml"/>
 			<p:menuitem value="Turma" />
 			<p:menuitem value="Aluno" />
 			<p:menuitem value="Contrato" />
@@ -22,7 +22,7 @@
 			<p:menuitem value="Lançamento" />
 			
 			<f:facet name="options">
-				<p:commandButton value="Logout" action="#{loginBean.efetuarLogout}"/>
+				<p:commandButton value="Logout" action="#{loginBean.efetuarLogout}" ajax="false"/>
 			</f:facet>
 			
 		</p:menubar>

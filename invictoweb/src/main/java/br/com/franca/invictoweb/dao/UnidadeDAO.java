@@ -24,7 +24,7 @@ public class UnidadeDAO implements Serializable {
 	}
 
 	public List<Unidade> getLista() {
-		TypedQuery<Unidade> q = em.createQuery("from Unidade order by name", Unidade.class);
+		TypedQuery<Unidade> q = em.createQuery("from Unidade order by nome", Unidade.class);
 		List<Unidade> listaUnidades = q.getResultList();
 		return listaUnidades;
 	}

@@ -1,6 +1,9 @@
 package br.com.franca.invictoweb.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 import br.com.franca.invictoweb.enuns.Situacao;
@@ -16,7 +19,8 @@ public class Unidade extends AbstractBean {
 	private String nome;
 	private String endereco;
 	private Situacao situacao;
-
+	
+	@Column(length = 10, nullable = false)
 	public String getNome() {
 		return nome;
 	}
@@ -24,7 +28,7 @@ public class Unidade extends AbstractBean {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
+	@Column(length = 30, nullable = false)
 	public String getEndereco() {
 		return endereco;
 	}
@@ -32,7 +36,9 @@ public class Unidade extends AbstractBean {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-
+	
+	@Enumerated(EnumType.ORDINAL)
+	@Column(nullable = false)
 	public Situacao getSituacao() {
 		return situacao;
 	}

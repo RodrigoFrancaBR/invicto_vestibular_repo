@@ -1,7 +1,9 @@
 package br.com.franca.invictoweb.web.bean;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -11,6 +13,21 @@ import br.com.franca.invictoweb.model.Unidade;
 @ManagedBean
 @SessionScoped
 public class UnidadeBean implements Serializable {
+	
+	private List<Unidade> listaDeUnidades;
+
+	@PostConstruct
+	public void init() {
+		this.listaDeUnidades = dao.getLista(); // processo custoso
+	}
+
+	public List<Unidade> getListaDeUnidades() {
+		return listaDeUnidades;
+	}
+
+	public void setListaDeUnidades(List<Unidade> listaDeUnidades) {
+		this.listaDeUnidades = listaDeUnidades;
+	}
 
 	/**
 	 * 

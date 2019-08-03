@@ -8,6 +8,7 @@ import javax.faces.event.PhaseListener;
 import javax.servlet.http.HttpSession;
 
 import br.com.franca.invictoweb.model.Usuario;
+import br.com.franca.invictoweb.model.UsuarioLogado;
 
 public class Authorizer implements PhaseListener {
 
@@ -28,7 +29,7 @@ public class Authorizer implements PhaseListener {
 		HttpSession session = (HttpSession) context.getExternalContext().getSession(true);
 
 		// recupera os dados que estão na sessão http
-		Usuario usuarioLogado = (Usuario) context.getExternalContext().getSessionMap().get("usuarioLogado");
+		UsuarioLogado usuarioLogado = (UsuarioLogado) context.getExternalContext().getSessionMap().get("usuarioLogado");
 		if (null == usuarioLogado) {
 			// navegacao programaticamente
 			NavigationHandler handler = context.getApplication().getNavigationHandler();

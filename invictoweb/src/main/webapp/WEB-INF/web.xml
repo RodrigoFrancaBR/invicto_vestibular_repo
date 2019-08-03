@@ -8,6 +8,12 @@
     <param-value>Development</param-value>
   </context-param>
   
+  <!-- desligarmos o cache de páginas -->
+  <context-param>
+    <param-name>avax.faces.FACELETS_REFRESH_PERIOD</param-name>
+     <param-value>0</param-value>
+  </context-param>
+    
     <context-param>
     <param-name>facelets.SKIP_COMMENTS</param-name>
     <param-value>true</param-value>
