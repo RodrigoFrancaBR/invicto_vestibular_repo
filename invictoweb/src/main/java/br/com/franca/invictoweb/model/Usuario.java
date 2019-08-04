@@ -12,17 +12,17 @@ public class Usuario extends AbstractBean {
 	 * 
 	 */
 	private static final long serialVersionUID = -3985035458790790933L;
-	
-	private String nome;
+
+	private String nomeUsuario;
 	private String senha;
 
-	@Column(length = 10, nullable = false)
-	public String getNome() {
-		return nome;
+	@Column(name="nome_usuario", length = 10, nullable = false)
+	public String getNomeUsuario() {
+		return nomeUsuario;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setNomeUsuario(String nomeUsuario) {
+		this.nomeUsuario = nomeUsuario;
 	}
 
 	@Column(length = 10, nullable = false)
@@ -36,10 +36,7 @@ public class Usuario extends AbstractBean {
 
 	@Override
 	public String toString() {
-		return "Usuario [nome=" + nome + ", senha=" + senha + "]";
+		return "Usuario [nomeUsuario=" + nomeUsuario + ", senha=" + senha + "]";
 	}
-	
-	
-	
-	
+
 }

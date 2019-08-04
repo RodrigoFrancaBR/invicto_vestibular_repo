@@ -14,6 +14,14 @@ import br.com.franca.invictoweb.model.Unidade;
 @SessionScoped
 public class UnidadeBean implements Serializable {
 	
+
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4859594067758699906L;
+	private UnidadeDAO dao;
+	private Unidade unidade;
 	private List<Unidade> listaDeUnidades;
 
 	@PostConstruct
@@ -28,13 +36,6 @@ public class UnidadeBean implements Serializable {
 	public void setListaDeUnidades(List<Unidade> listaDeUnidades) {
 		this.listaDeUnidades = listaDeUnidades;
 	}
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 4859594067758699906L;
-	private UnidadeDAO dao;
-	private Unidade unidade;
 
 	public UnidadeBean() {
 		this.dao = new UnidadeDAO();

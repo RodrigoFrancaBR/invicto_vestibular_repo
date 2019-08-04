@@ -1,4 +1,9 @@
-<!-- Diz que quer usar o componente template no principal.xhtml -->
-	<ui:composition template="/WEB-INF/template/default/layout.xhtml"
-					xmlns:ui="http://xmlns.jcp.org/jsf/facelets">						
-	</ui:composition>	
+<ui:composition template="/WEB-INF/template/default/layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="title">Principal</ui:define>
+</ui:composition>

@@ -5,37 +5,37 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseEvent;
 import javax.faces.event.PhaseId;
 import javax.faces.event.PhaseListener;
-import javax.servlet.http.HttpSession;
 
 import br.com.franca.invictoweb.model.Usuario;
-import br.com.franca.invictoweb.model.UsuarioLogado;
 
 public class Authorizer implements PhaseListener {
 
-	private static final long serialVersionUID = 4031554023462566875L;	
+	private static final long serialVersionUID = 4031554023462566875L;
 
 	@Override
 	public void afterPhase(PhaseEvent event) {
-		// recuperar a arvore para saber o nome da pagina
+
+		System.out.println("FASE: " + event.getPhaseId());
+
 		FacesContext context = event.getFacesContext();
-		@SuppressWarnings("unused")
+
+		// recuperar a arvore para saber o nome da pagina
 		String nomePagina = context.getViewRoot().getViewId();
+
 		System.out.println(nomePagina);
+
 		if ("/login.xhtml".equals(nomePagina)) {
 			return;
 		}
 
-		@SuppressWarnings("unused")
-		HttpSession session = (HttpSession) context.getExternalContext().getSession(true);
+		Usuario usuarioLogado = (Usuario) context.getExternalContext().getSessionMap().get("usuarioLogado");
+		System.out.println(usuarioLogado);
 
-		// recupera os dados que estão na sessão http
-		UsuarioLogado usuarioLogado = (UsuarioLogado) context.getExternalContext().getSessionMap().get("usuarioLogado");
 		if (null == usuarioLogado) {
 			// navegacao programaticamente
 			NavigationHandler handler = context.getApplication().getNavigationHandler();
 			handler.handleNavigation(context, null, "/login?faces-redirect=true");
 			context.renderResponse();
-
 		} else {
 			return;
 		}
@@ -50,7 +50,6 @@ public class Authorizer implements PhaseListener {
 
 	@Override
 	public PhaseId getPhaseId() {
-
 		return PhaseId.RESTORE_VIEW;
 	}
 }

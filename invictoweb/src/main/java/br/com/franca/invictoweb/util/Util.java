@@ -1,20 +1,28 @@
 package br.com.franca.invictoweb.util;
 
-public class Util {
-	private static String mensagemErro;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
-	public static void setMensagemErro(Exception e) {
+public class Util {
+
+	public static String getMensagemErro(Exception e) {
 		while (e.getCause() != null) {
 			e = (Exception) e.getCause();
 		}
-		mensagemErro = e.getMessage();
-		/*if (mensagemErro.contains("viola restrição de chave estrangeira")) {
-			mensagemErro = "Registro não pode ser excluido por possuir referências no sistema...";
-		}*/
-		
+		return e.getMessage();	
 	}
-	
-	public static String getMensagemErro() {		
-		return mensagemErro;
+
+	public static void mensagemInformacao(String msg) {
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		facesContext.getExternalContext().getFlash().setKeepMessages(true);
+		FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_INFO, msg, "");
+		facesContext.addMessage(null, mensagem);
+	}
+
+	public static void mensagemErro(String msg) {
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		facesContext.getExternalContext().getFlash().setKeepMessages(true);
+		FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, "");
+		facesContext.addMessage(null, mensagem);
 	}
 }

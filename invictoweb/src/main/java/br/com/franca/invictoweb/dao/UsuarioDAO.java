@@ -7,6 +7,7 @@ import javax.persistence.TypedQuery;
 
 import br.com.franca.invictoweb.model.Usuario;
 import br.com.franca.invictoweb.util.EntityManagerUtil;
+import br.com.franca.invictoweb.util.Util;
 
 public class UsuarioDAO implements Serializable {
 
@@ -22,12 +23,33 @@ public class UsuarioDAO implements Serializable {
 		this.em = EntityManagerUtil.getEntityManager();
 	}
 
-	public Usuario efetuarLogin(String nome, String senha) {
-		String jpql = "Select u from Usuario u Where " + "u.nome = :nome" + " and " + "u.senha = :senha";
-		TypedQuery<Usuario> query = em.createQuery(jpql, Usuario.class);
-		query.setParameter("nome", nome);
-		query.setParameter("senha", senha);
-		return query.getSingleResult();
+	public Usuario buscarPor(String nomeUsuario, String senha) {
+		String jpql = "Select u from Usuario u"
+				  + " Where " + "u.nomeUsuario = :nomeUsuario"
+				  + " and "   + "u.senha = :senha";
 
+		try {
+			TypedQuery<Usuario> query = em.createQuery(jpql, Usuario.class);
+			query.setParameter("nomeUsuario", nomeUsuario);
+			query.setParameter("senha", senha);
+			Usuario usuario = query.getSingleResult();
+			return usuario;
+		} catch (Exception e) {
+			if (em.getTransaction().isActive() == false) {
+				em.getTransaction().begin();
+			}
+			em.getTransaction().rollback();			
+			mensagem = "falha: " + Util.getMensagemErro(e);
+			// e.printStackTrace();
+			return null;
+		}
+	}
+
+	public String getMensagem() {
+		return mensagem;
+	}
+
+	public void setMensagem(String mensagem) {
+		this.mensagem = mensagem;
 	}
 }

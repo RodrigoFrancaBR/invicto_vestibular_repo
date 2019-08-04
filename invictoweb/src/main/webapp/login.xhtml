@@ -9,57 +9,59 @@
 	<ui:define name="content">
 		<h:head>
 			<h:outputStylesheet library="css" name="default-style.css" />
+			<!-- 			<h:outputStylesheet library="css" name="estilo.css" /> -->
 		</h:head>
 
 		<h:body>
 
 			<div id="login-dialog">
-				<h:form id="formLogin"
-					rendered="#{loginBean.usuarioLogado.usuario== null}">
-					<p:panel header="Efetuar Login" styleClass="grid-login">
-						<p:messages globalOnly="true" />
+				<h:form id="formLogin" rendered="#{loginBean.usuario == null}">
+					<p:fieldset id="form">
+						<p:panel header="Efetuar Login" styleClass="grid-login">
+							<p:messages globalOnly="true" />
 
 
-						<h:panelGrid columns="2">
-							<p:outputLabel value="Usuário" for="inpUsuario" />
-							<h:panelGroup>
+							<h:panelGrid columns="2">
+								<p:outputLabel value="Usuário" for="inpUsuario" />
+								<h:panelGroup>
 
-								<p:inputText id="inpUsuario" autocomplete="off"
-									placeholder="Obrigatório" required="true"
-									requiredMessage="Campo Usuário é de preenchimento obrigatório."
-									validatorMessage="Campo Usuário deve ter no mínimo 7 e no máximo 10 caracteres."
-									value="#{loginBean.nome}">
-									<f:validateLength minimum="7" maximum="10" />
-								</p:inputText>
+									<p:inputText id="inpUsuario" autocomplete="off"
+										placeholder="Obrigatório" required="true"
+										requiredMessage="Campo Usuário é de preenchimento obrigatório."
+										validatorMessage="Campo Usuário deve ter no mínimo 7 e no máximo 10 caracteres."
+										value="#{loginBean.nomeUsuario}">
+										<f:validateLength minimum="7" maximum="10" />
+									</p:inputText>
 
-								<p:message for="inpUsuario" id="msgEmail" showDetail="true"
-									showSummary="false" />
+									<p:message for="inpUsuario" id="msgUsuario" showDetail="true"
+										showSummary="false" />
 
-							</h:panelGroup>
+								</h:panelGroup>
 
-							<p:outputLabel value="Senha" for="inpSenha" />
+								<p:outputLabel value="Senha" for="inpSenha" />
 
-							<h:panelGroup>
-								<p:password id="inpSenha" placeholder="Obrigatório"
-									required="true" autocomplete="off"
-									requiredMessage="Campo Senha é de preenchimento obrigatório."
-									validatorMessage="Campo Senha deve ter no mínimo 7 e no máximo 10 caracteres."
-									value="#{loginBean.senha}">
+								<h:panelGroup>
+									<p:password id="inpSenha" placeholder="Obrigatório"
+										required="true" autocomplete="off"
+										requiredMessage="Campo Senha é de preenchimento obrigatório."
+										validatorMessage="Campo Senha deve ter no mínimo 7 e no máximo 10 caracteres."
+										value="#{loginBean.senha}">
 
-									<f:validateLength minimum="7" maximum="10" />
+										<f:validateLength minimum="7" maximum="10" />
 
-								</p:password>
+									</p:password>
 
-								<p:message for="inpSenha" id="msgSenha" showDetail="true"
-									showSummary="false" />
+									<p:message for="inpSenha" id="msgSenha" showDetail="true"
+										showSummary="false" />
 
-							</h:panelGroup>
+								</h:panelGroup>
 
-							<p:commandButton id="btnLogin" value="Efetuar Login"
-								action="#{loginBean.efetuarLogin}" ajax="false" />
+								<p:commandButton id="btnLogin" value="Efetuar Login"
+									action="#{loginBean.efetuarLogin}" ajax="false" />
 
-						</h:panelGrid>
-					</p:panel>
+							</h:panelGrid>
+						</p:panel>
+					</p:fieldset>
 				</h:form>
 			</div>
 		</h:body>

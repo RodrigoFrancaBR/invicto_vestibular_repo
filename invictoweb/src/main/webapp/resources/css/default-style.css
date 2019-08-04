@@ -10,3 +10,9 @@
 .ui-layout-north .ui-layout-unit-content {
     overflow:visible !important;
 }
+
+.ui-fieldset-legend{
+	font-size: 12px !important;
+	
+}
+/* ui-corner-all ui-state-default */

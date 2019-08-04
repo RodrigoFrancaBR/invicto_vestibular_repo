@@ -1,71 +1,53 @@
 package br.com.franca.invictoweb.web.bean;
 
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import br.com.franca.invictoweb.dao.UsuarioDAO;
 import br.com.franca.invictoweb.model.Usuario;
-import br.com.franca.invictoweb.model.UsuarioLogado;
+import br.com.franca.invictoweb.util.Util;
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class LoginBean {
-	private UsuarioLogado usuarioLogado;
-	private UsuarioDAO dao;
-	private String nome;
+	private String nomeUsuario;
 	private String senha;
+	private Usuario usuario;
+	private UsuarioDAO dao;
 
 	public LoginBean() {
-		usuarioLogado = new UsuarioLogado();
-		dao = new UsuarioDAO();
+		this.dao = new UsuarioDAO();
 	}
 
 	public String efetuarLogin() {
-		Usuario usuario = dao.efetuarLogin(nome, senha);
+		usuario = dao.buscarPor(nomeUsuario, senha);
 
 		FacesContext context = FacesContext.getCurrentInstance();
 
 		if (usuario != null) {
-			this.usuarioLogado.setUsuario(usuario);
-			context.getExternalContext().getSessionMap().put("usuarioLogado", this.usuarioLogado);
+			context.getExternalContext().getSessionMap().put("usuarioLogado", usuario);
 			return "principal?faces-redirect=true";
 		} else {
 			context.getExternalContext().getFlash().setKeepMessages(true);
-			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Usuário não encontrado", ""));
+			Util.mensagemErro(dao.getMensagem());
 			return "login?faces-redirect=true";
 		}
 	}
 
 	public String efetuarLogout() {
 		FacesContext context = FacesContext.getCurrentInstance();
-		context.getExternalContext().getSessionMap().remove("usuarioLogado", this.usuarioLogado);
+		context.getExternalContext().getSessionMap().remove("usuarioLogado");
+		this.usuario = null;
 		return "login?faces-redirect=true";
 	}
 
-	public UsuarioLogado getUsuarioLogado() {
-		return usuarioLogado;
+	public String getNomeUsuario() {
+		return nomeUsuario;
 	}
 
-	public void setUsuarioLogado(UsuarioLogado usuarioLogado) {
-		this.usuarioLogado = usuarioLogado;
-	}
-
-	public UsuarioDAO getDao() {
-		return dao;
-	}
-
-	public void setDao(UsuarioDAO dao) {
-		this.dao = dao;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setNomeUsuario(String nomeUsuario) {
+		this.nomeUsuario = nomeUsuario;
 	}
 
 	public String getSenha() {
@@ -74,6 +56,22 @@ public class LoginBean {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public UsuarioDAO getDao() {
+		return dao;
+	}
+
+	public void setDao(UsuarioDAO dao) {
+		this.dao = dao;
 	}
 
 }

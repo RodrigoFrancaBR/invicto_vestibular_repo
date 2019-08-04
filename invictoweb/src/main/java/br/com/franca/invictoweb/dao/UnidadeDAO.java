@@ -40,9 +40,8 @@ public class UnidadeDAO implements Serializable {
 			if (em.getTransaction().isActive() == false) {
 				em.getTransaction().begin();
 			}
-			em.getTransaction().rollback();
-			Util.setMensagemErro(e);
-			mensagem = "falha: " + Util.getMensagemErro();
+			em.getTransaction().rollback();			
+			mensagem = "falha: " + Util.getMensagemErro(e);;
 			return false;
 		}
 	}
