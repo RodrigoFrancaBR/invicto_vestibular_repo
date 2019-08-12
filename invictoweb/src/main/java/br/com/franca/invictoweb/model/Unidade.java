@@ -10,7 +10,7 @@ import br.com.franca.invictoweb.enuns.Situacao;
 
 @Entity
 @Table(name = "tb_unidade")
-public class Unidade extends AbstractBean {
+public class Unidade extends AbstractBaseEntity<Unidade> {
 
 	/**
 	 * 
@@ -50,6 +50,12 @@ public class Unidade extends AbstractBean {
 	@Override
 	public String toString() {
 		return "Unidade [nome=" + nome + ", endereco=" + endereco + ", situacao=" + situacao + "]";
+	}
+
+	@Override
+	public Unidade createNewEntity() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

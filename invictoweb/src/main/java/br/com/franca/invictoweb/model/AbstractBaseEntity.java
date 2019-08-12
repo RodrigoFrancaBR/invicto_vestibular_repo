@@ -1,19 +1,16 @@
 package br.com.franca.invictoweb.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public abstract class AbstractBean implements Serializable {
-	// funcionalidades básicas dos beans
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1325800836113479133L;
+public abstract class AbstractBaseEntity<E> implements Serializable {
 
+	private static final long serialVersionUID = 1325800836113479133L;	
 	private Long id;
 
 	@Id
@@ -25,6 +22,31 @@ public abstract class AbstractBean implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+	// beans
+	protected E entity;
+
+	protected List<E> listEntitys;
+
+	// Getters e Setters de Entidade
+
+	public E getEntity() {
+		return entity;
+	}
+
+	public void setEntity(E entity) {
+		this.entity = entity;
+	}
+
+	public List<E> getListEntitys() {
+		return listEntitys;
+	}
+
+	public void setListEntitys(List<E> listEntitys) {
+		this.listEntitys = listEntitys;
+	}
+
+	public abstract E createNewEntity();
 
 	@Override
 	public int hashCode() {
@@ -42,7 +64,7 @@ public abstract class AbstractBean implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		AbstractBean other = (AbstractBean) obj;
+		AbstractBaseEntity other = (AbstractBaseEntity) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -50,5 +72,9 @@ public abstract class AbstractBean implements Serializable {
 			return false;
 		return true;
 	}
+	
+	
+	
+	
 
 }

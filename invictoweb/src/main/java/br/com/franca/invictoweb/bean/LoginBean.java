@@ -1,4 +1,4 @@
-package br.com.franca.invictoweb.web.bean;
+package br.com.franca.invictoweb.bean;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;

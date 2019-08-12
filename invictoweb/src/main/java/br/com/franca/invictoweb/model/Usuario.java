@@ -6,7 +6,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_usuario")
-public class Usuario extends AbstractBean {
+public class Usuario extends AbstractBaseEntity<Usuario> {
 
 	/**
 	 * 
@@ -37,6 +37,12 @@ public class Usuario extends AbstractBean {
 	@Override
 	public String toString() {
 		return "Usuario [nomeUsuario=" + nomeUsuario + ", senha=" + senha + "]";
+	}
+
+	@Override
+	public Usuario createNewEntity() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

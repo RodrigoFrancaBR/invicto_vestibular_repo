@@ -1,29 +1,50 @@
 package br.com.franca.invictoweb.dao;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
 
 import br.com.franca.invictoweb.model.Unidade;
 import br.com.franca.invictoweb.util.EntityManagerUtil;
-import br.com.franca.invictoweb.util.Util;
 
-public class UnidadeDAO implements Serializable {
+public class UnidadeDAO extends AbstractBaseDAO<Unidade> implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -5344268670413852352L;
 	private String mensagem = "";
 	private EntityManager em;
 
 	public UnidadeDAO() {
-		this.em = EntityManagerUtil.getEntityManager();
+		em = EntityManagerUtil.getEntityManager();		
+	}	
+
+	/*@Override
+	public void save(Unidade entity) {
+		// TODO Auto-generated method stub
+		
 	}
 
-	public List<Unidade> getLista() {
+	@Override
+	public void update(Unidade entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(Unidade entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Unidade> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}*/
+
+	
+	
+
+	/*public List<Unidade> findAll() {
 		TypedQuery<Unidade> q = em.createQuery("from Unidade order by nome", Unidade.class);
 		List<Unidade> listaUnidades = q.getResultList();
 		return listaUnidades;
@@ -40,13 +61,14 @@ public class UnidadeDAO implements Serializable {
 			if (em.getTransaction().isActive() == false) {
 				em.getTransaction().begin();
 			}
-			em.getTransaction().rollback();			
-			mensagem = "falha: " + Util.getMensagemErro(e);;
+			em.getTransaction().rollback();
+			mensagem = "falha: " + Util.getMensagemErro(e);
+			;
 			return false;
 		}
 	}
 
 	public Unidade buscarPorID(Long id) {
 		return em.find(Unidade.class, id);
-	}
+	}*/
 }
