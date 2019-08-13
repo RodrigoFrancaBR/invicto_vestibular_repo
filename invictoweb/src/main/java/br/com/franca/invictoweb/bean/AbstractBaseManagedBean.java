@@ -83,9 +83,9 @@ public abstract class AbstractBaseManagedBean<E, S extends AbstractBaseService> 
 		
 		service = getService();
 		
-		service.findAll();
-		
-		return listEntitys;
+		listEntitys = service.findAll();
+		return null;
+		// return listEntitys;
 	}
 
 	@Override

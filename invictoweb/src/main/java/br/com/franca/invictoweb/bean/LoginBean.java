@@ -16,11 +16,13 @@ public class LoginBean {
 	private Usuario usuario;
 	private UsuarioDAO dao;
 
-	public LoginBean() {
+	/*public LoginBean() {
 		this.dao = new UsuarioDAO();
-	}
+	}*/
 
 	public String efetuarLogin() {
+		this.dao = new UsuarioDAO();
+		
 		usuario = dao.buscarPor(nomeUsuario, senha);
 
 		FacesContext context = FacesContext.getCurrentInstance();
@@ -32,7 +34,7 @@ public class LoginBean {
 			context.getExternalContext().getFlash().setKeepMessages(true);
 			Util.mensagemErro(dao.getMensagem());
 			return "login?faces-redirect=true";
-		}
+		}		
 	}
 
 	public String efetuarLogout() {

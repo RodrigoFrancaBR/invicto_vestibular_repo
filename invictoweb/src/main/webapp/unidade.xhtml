@@ -7,7 +7,7 @@
 	xmlns:p="http://primefaces.org/ui">
 
 	<f:metadata>
-		<f:viewAction action="#{unidadeBean.finAll}" />
+		<f:viewAction action="#{unidadeBean.findAll}" />
 	</f:metadata>
 
 	<ui:define name="title">Unidade</ui:define>
@@ -16,7 +16,7 @@
 
 		<h:outputStylesheet library="css" name="default-style.css" />
 
-		<p:fieldset rendered="#{unidadeBean.busca == false}">
+		<p:fieldset rendered="#{unidadeBean.buscar == false}">
 			<h:panelGrid columns="2">
 
 				<p:outputLabel value="Nome:" for="inpNome" />
@@ -52,7 +52,7 @@
 		</p:fieldset>
 
 		<br></br>
-		<p:toolbar rendered="#{unidadeBean.busca == true}">
+		<p:toolbar rendered="#{unidadeBean.buscar == true}">
 			<p:toolbarGroup align="right">
 				<p:dataTable value="#{unidadeBean.listEntitys}" var="unidade"
 					emptyMessage="Nenhuma unidade" rows="8" paginator="true"

@@ -46,7 +46,8 @@ public abstract class AbstractBaseService<E, B extends AbstractBaseBusiness> imp
 	@Override
 	public List<E> findAll() {
 		business = getBusiness();
-		return listEntitys;
+		return business.findAll();
+		// return listEntitys;
 	}
 
 	@Override

@@ -22,11 +22,9 @@ public abstract class AbstractBaseBusiness<E, D extends AbstractBaseDAO> impleme
 
 	@Override
 	public List<E> findAll() {
-		dao = getDao();
-
-		dao.findAll();
-
-		return listEntitys;
+		dao = getDao();		
+		return dao.findAll();
+		// return listEntitys;
 	}
 
 	@Override

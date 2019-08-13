@@ -23,7 +23,6 @@ public abstract class AbstractBaseDAO<E> implements IDAO<E> {
 
 	@Override
 	public List<E> findAll() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

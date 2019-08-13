@@ -24,13 +24,13 @@ public abstract class AbstractBaseEntity<E> implements Serializable {
 	}
 
 	// beans
-	protected E entity;
+/*	protected E entity;
 
-	protected List<E> listEntitys;
+	protected List<E> listEntitys;*/
 
 	// Getters e Setters de Entidade
 
-	public E getEntity() {
+/*	public E getEntity() {
 		return entity;
 	}
 
@@ -44,7 +44,7 @@ public abstract class AbstractBaseEntity<E> implements Serializable {
 
 	public void setListEntitys(List<E> listEntitys) {
 		this.listEntitys = listEntitys;
-	}
+	}*/
 
 	public abstract E createNewEntity();
 

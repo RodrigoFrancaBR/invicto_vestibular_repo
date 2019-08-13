@@ -1,8 +1,10 @@
 package br.com.franca.invictoweb.dao;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 import br.com.franca.invictoweb.model.Unidade;
 import br.com.franca.invictoweb.util.EntityManagerUtil;
@@ -17,7 +19,7 @@ public class UnidadeDAO extends AbstractBaseDAO<Unidade> implements Serializable
 		em = EntityManagerUtil.getEntityManager();		
 	}	
 
-	/*@Override
+	@Override
 	public void save(Unidade entity) {
 		// TODO Auto-generated method stub
 		
@@ -37,9 +39,10 @@ public class UnidadeDAO extends AbstractBaseDAO<Unidade> implements Serializable
 
 	@Override
 	public List<Unidade> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}*/
+		TypedQuery<Unidade> q = em.createQuery("from Unidade order by nome", Unidade.class);
+		List<Unidade> listaUnidades = q.getResultList();
+		return listaUnidades;
+	}
 
 	
 	
